@@ -23,7 +23,7 @@ class PPU extends CI_Controller {
 
     function index() {
         $data = [
-            'title' => 'Data Nota | PT CAB',
+            'title' => 'Data_Nota | PT CAB',
             'formtitle' => '',
             'id' => $this->result[0]->id,
             'uname' => $this->result[0]->uname,
