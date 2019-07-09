@@ -1,0 +1,49 @@
+{
+    "RECORDS": [
+        {
+            "nama": "MARIATI SIHOMBING",
+            "tempat_lahir": "MARGAHAYU TENGAH",
+            "tgl_lahir": "1951-10-17",
+            "jen_kel": "1",
+            "alamat": "",
+            "kel": "",
+            "kec": "",
+            "kota": "KAB.BANDUNG",
+            "prov": "",
+            "no_hp": "",
+            "email": "",
+            "jabatan": "1",
+            "status": "1"
+        },
+        {
+            "nama": "HJ. EUIS KARTIUMANAH",
+            "tempat_lahir": "SARIJADI",
+            "tgl_lahir": "1950-8-3",
+            "jen_kel": "1",
+            "alamat": "",
+            "kel": "",
+            "kec": "",
+            "kota": "BANDUNG",
+            "prov": "",
+            "no_hp": "",
+            "email": "",
+            "jabatan": "1",
+            "status": "1"
+        },
+        {
+            "nama": "HENNI SUPARTINI",
+            "tempat_lahir": "KOPO",
+            "tgl_lahir": "1958-9-9",
+            "jen_kel": "1",
+            "alamat": "",
+            "kel": "",
+            "kec": "",
+            "kota": "BANDUNG",
+            "prov": "",
+            "no_hp": "",
+            "email": "",
+            "jabatan": "1",
+            "status": "1"
+        }
+    ]
+}
