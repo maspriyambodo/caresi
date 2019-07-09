@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.php.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/php-project/1">
+            <name>caresi</name>
+        </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>batal</word>
+            <word>bayar</word>
+            <word>harga</word>
+            <word>jumlah</word>
+            <word>keterangan</word>
+            <word>kuantitas</word>
+            <word>nama</word>
+            <word>NOta</word>
+            <word>ppn</word>
+            <word>ppu</word>
+            <word>proyek</word>
+            <word>satuan</word>
+            <word>tanggal</word>
+            <word>terbilang</word>
+            <word>terbit</word>
+            <word>tgl</word>
+            <word>tmt</word>
+            <word>uraian</word>
+        </spellchecker-wordlist>
+    </configuration>
+</project>
