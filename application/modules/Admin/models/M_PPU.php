@@ -41,6 +41,7 @@ class M_PPU extends CI_Model {
         $exec = $this->db->select()
                 ->select('(SELECT SUM(jumlah * harga) FROM ppu WHERE ppu.no_ppu=' . $ppu . ') AS total')
                 ->from('ppu')
+                ->join('proyek', 'ppu.no_ppu = proyek.id_ppu', 'LEFT')
                 ->where('ppu.no_ppu', $ppu)
                 ->get()
                 ->result();

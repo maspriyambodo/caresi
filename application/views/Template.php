@@ -28,7 +28,17 @@
                             <div class="profile_info">
                                 <span>Welcome,</span>
                                 <h2 class="text-uppercase"><?= $uname; ?></h2>
-                                <a href="<?= base_url('Auth/Logout/'); ?>">log out</a>
+                                <?php
+                                if ($this->session->userdata('hakakses') == 1) {
+                                    echo 'admin';
+                                } elseif ($this->session->userdata('hakakses') == 2) {
+                                    echo 'logistik';
+                                } elseif ($this->session->userdata('hakakses') == 3) {
+                                    echo 'finance';
+                                } elseif ($this->session->userdata('hakakses') == 4) {
+                                    echo 'direktur';
+                                }
+                                ?>
                             </div>
                         </div>
                         <br/>
@@ -61,6 +71,7 @@
                                     <ul class="nav side-menu">
                                         <li class=""><a href="<?= base_url('Logistik/Dashboard/index'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                                         <li class=""><a href="<?= base_url('Logistik/PPU/index'); ?>"><i class="glyphicon glyphicon-list-alt"></i> Data PPU</a></li>
+                                        <li class=""><a href="<?= base_url('Logistik/PPU/Laporan'); ?>"><i class="glyphicon glyphicon-list-alt"></i> Laporan PPU</a></li>
                                     </ul>
                                 </div>
                                 <!--====================================================================================-->

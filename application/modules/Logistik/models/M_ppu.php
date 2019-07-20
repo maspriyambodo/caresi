@@ -27,7 +27,7 @@ class M_ppu extends CI_Model {
     }
 
     function Detail($id) {
-        $exec = $this->db->select('ppu.keterangan,ppu.satuan,ppu.jumlah,ppu.harga,ppu.id_ppu,ppu.tgl_ppu,proyek.nama_proyek,proyek.pemilik_proyek,usr_adm.uname')
+        $exec = $this->db->select('ppu.no_ppu,ppu.keterangan,ppu.satuan,ppu.jumlah,ppu.harga,ppu.id_ppu,ppu.tgl_ppu,proyek.nama_proyek,proyek.pemilik_proyek,usr_adm.uname')
                 ->from('ppu')
                 ->join('proyek', 'ppu.no_ppu = proyek.id_ppu', 'LEFT')
                 ->join('usr_adm', 'ppu.syscreateuser = usr_adm.id', 'LEFT')
@@ -41,15 +41,44 @@ class M_ppu extends CI_Model {
         $this->db->trans_begin();
         $i = 0;
         for ($i = 0; $i < count($data['keterangan']); $i++) {
-            $this->db->set(['keterangan' => $data['keterangan'][$i], 'satuan' => $data['satuan'][$i], 'jumlah' => $data['jumlah'][$i], 'harga' => $data['harga'][$i], 'stat' => 2]);
+            $this->db->set(['keterangan' => $data['keterangan'][$i], 'satuan' => $data['satuan'][$i], 'jumlah' => $data['jumlah'][$i], 'harga' => $data['harga'][$i]]);
             $this->db->where('id_ppu', $data['id_ppu'][$i]);
+            $this->db->update('ppu');
+
+            $this->db->set('stat', 2);
+            $this->db->where('no_ppu', $data['no_ppu']);
             $this->db->update('ppu');
         }
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();
+            return false;
         } else {
             $this->db->trans_commit();
+            return true;
         }
+    }
+
+    function Laporan() {
+        $exec = $this->db->select()
+                ->from('ppu')
+                ->join('proyek', 'ppu.no_ppu = proyek.id_ppu', 'LEFT')
+                ->join('usr_adm', 'ppu.syscreateuser = usr_adm.id', 'LEFT')
+                ->where('ppu.stat', 2)
+                ->group_by('ppu.no_ppu')
+                ->get()
+                ->result();
+        return $exec;
+    }
+
+    function Lapdetail($no_ppu) {
+        $exec = $this->db->select('ppu.no_ppu,ppu.keterangan,ppu.satuan,ppu.jumlah,ppu.harga,ppu.id_ppu,ppu.tgl_ppu,proyek.nama_proyek,proyek.pemilik_proyek,usr_adm.uname')
+                ->from('ppu')
+                ->join('proyek', 'ppu.no_ppu = proyek.id_ppu', 'LEFT')
+                ->join('usr_adm', 'ppu.syscreateuser = usr_adm.id', 'LEFT')
+                ->where('ppu.no_ppu', $no_ppu)
+                ->get()
+                ->result();
+        return $exec;
     }
 
 }

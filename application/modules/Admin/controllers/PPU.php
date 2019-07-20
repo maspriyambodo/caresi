@@ -79,4 +79,8 @@ class PPU extends CI_Controller {
         $this->load->view('template', $data);
     }
 
+    function Bukti($no_ppu) {
+        echo '<img src="assets/images/bg1.jpg">';
+    }
+
 }
