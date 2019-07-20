@@ -11,7 +11,7 @@
  Target Server Version : 100140
  File Encoding         : 65001
 
- Date: 09/07/2019 21:19:06
+ Date: 13/07/2019 06:51:30
 */
 
 SET NAMES utf8mb4;
@@ -26,6 +26,39 @@ CREATE TABLE `dokumen_pendukung`  (
   `nama` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `path` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for jabatan
+-- ----------------------------
+DROP TABLE IF EXISTS `jabatan`;
+CREATE TABLE `jabatan`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of jabatan
+-- ----------------------------
+INSERT INTO `jabatan` VALUES (1, 'Administrator');
+INSERT INTO `jabatan` VALUES (2, 'Logistik');
+INSERT INTO `jabatan` VALUES (3, 'Finance');
+INSERT INTO `jabatan` VALUES (4, 'Direktur');
+
+-- ----------------------------
+-- Table structure for karyawan
+-- ----------------------------
+DROP TABLE IF EXISTS `karyawan`;
+CREATE TABLE `karyawan`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `j_kel` int(11) NULL DEFAULT NULL,
+  `alamat` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `jabatan` int(11) NULL DEFAULT NULL,
+  `mail` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `telepon` varchar(13) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for laporan
@@ -120,7 +153,7 @@ CREATE TABLE `usr_adm`  (
   `nik` bigint(20) NULL DEFAULT NULL,
   `uname` varchar(25) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'using case sensitive',
   `usr_mail` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `hak_akses` int(11) NULL DEFAULT NULL COMMENT '1. Admin, \r\n2. Sales, \r\n3. Marketing, \r\n4. Supervisor, \r\n5. ABL',
+  `hak_akses` int(11) NULL DEFAULT NULL,
   `pict` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;

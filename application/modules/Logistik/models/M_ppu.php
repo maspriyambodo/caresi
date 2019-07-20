@@ -27,7 +27,7 @@ class M_ppu extends CI_Model {
     }
 
     function Detail($id) {
-        $exec = $this->db->select('ppu.keterangan,ppu.satuan,ppu.jumlah,ppu.harga,ppu.id_ppu')
+        $exec = $this->db->select('ppu.keterangan,ppu.satuan,ppu.jumlah,ppu.harga,ppu.id_ppu,ppu.tgl_ppu,proyek.nama_proyek,proyek.pemilik_proyek,usr_adm.uname')
                 ->from('ppu')
                 ->join('proyek', 'ppu.no_ppu = proyek.id_ppu', 'LEFT')
                 ->join('usr_adm', 'ppu.syscreateuser = usr_adm.id', 'LEFT')
@@ -41,7 +41,7 @@ class M_ppu extends CI_Model {
         $this->db->trans_begin();
         $i = 0;
         for ($i = 0; $i < count($data['keterangan']); $i++) {
-            $this->db->set('keterangan', $data['keterangan'][$i]);
+            $this->db->set(['keterangan' => $data['keterangan'][$i], 'satuan' => $data['satuan'][$i], 'jumlah' => $data['jumlah'][$i], 'harga' => $data['harga'][$i], 'stat' => 2]);
             $this->db->where('id_ppu', $data['id_ppu'][$i]);
             $this->db->update('ppu');
         }

@@ -14,7 +14,8 @@
 class M_PPU extends CI_Model {
 
     function Simpan($data) {
-        print_r($data);die;
+        print_r($data);
+        die;
     }
 
     function Tambah() {
@@ -28,6 +29,8 @@ class M_PPU extends CI_Model {
     function Read() {
         $exec = $this->db->select()
                 ->from('ppu')
+                ->join('proyek', 'ppu.no_ppu = proyek.id_ppu', 'LEFT')
+                ->join('usr_adm', 'ppu.syscreateuser = usr_adm.id', 'LEFT')
                 ->group_by('ppu.no_ppu')
                 ->get()
                 ->result();

@@ -56,7 +56,8 @@ class PPU extends CI_Controller {
             'id_ppu' => $this->input->post('id'),
             'satuan' => $this->input->post('satuan'),
             'jumlah' => $this->input->post('jumlah'),
-            'harga' => $this->input->post('harga')
+            'harga' => str_replace(',', '', $this->input->post('harga')),
+            'stat' => 2
         ];
         $this->M_ppu->Update($data);
     }

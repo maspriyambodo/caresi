@@ -47,7 +47,7 @@
                     <div class="text-center card-footer">
                         <p>©
                             <?= date("Y"); ?> All Rights Reserved.<br>
-                            PT CARRESIH ABADI
+                            PT ROBINSON MAJU BERSAMA
                         </p>
                     </div>
                 </div>

@@ -1,4 +1,29 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="text-uppercase">tanggal ppu :</label>
+            <p class="text-uppercase"><?= $value[0]->tgl_ppu ?></p>
+        </div>
+        <div class="form-group">
+            <label class="text-uppercase">user input ppu :</label>
+            <p class="text-uppercase"><?= $value[0]->uname ?></p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="text-uppercase">nama proyek :</label>
+            <p class="text-uppercase"><?= $value[0]->nama_proyek ?></p>
+        </div>
+        <div class="form-group">
+            <label class="text-uppercase">pemilik proyek :</label>
+            <p class="text-uppercase"><?= $value[0]->pemilik_proyek ?></p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+    </div>
+</div>
 <form method="post" action="<?= base_url('Logistik/PPU/Update/'); ?>">
     <table class="table table-bordered table-hover table-striped">
         <thead>

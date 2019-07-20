@@ -7,10 +7,15 @@
         </div>
     </div>
     <div class="col-md-4">
-
+        <div class="form-group">
+            <label class="text-uppercase">tanggal terbit</label>
+            <p><?= $ppu->nama_proyek ?></p>
+        </div>
     </div>
     <div class="col-md-4">
-
+        <div class="form-group text-right">
+            <a href="#" class="btn btn-default btn-success">lihat bukti transfer</a>
+        </div>
     </div>
 </div>
 <table class="table table-bordered table-hover table-striped" style="width:100%;">
