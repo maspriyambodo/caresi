@@ -14,7 +14,6 @@
         <link href="<?= base_url('assets/css/bootstrap-datepicker.min.css'); ?>" rel="stylesheet" />
         <link href="<?= base_url('assets/css/animate.css'); ?>" type="text/css" rel="stylesheet"/>
         <link href="<?= base_url('assets/css/custom.min.css'); ?>" rel="stylesheet">
-        <link href="<?= base_url('assets/css/dropzone.min.css'); ?>" rel=stylesheet type="text/css" />
         <link href="<?= base_url('node_modules/chart.js/dist/Chart.min.css'); ?>" rel=stylesheet type="text/css" />
     </head>
     <body class="nav nav-md">
@@ -77,11 +76,13 @@
                                 <!--====================================================================================-->
                                 <div class="menu_section <?= $finance; ?>">
                                     <ul class="nav side-menu">
-                                        <li class=""><a href="<?= base_url('Admin/Dashboard/index'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                                        <li class="">
-                                            <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu" style="display: none;">
-                                                <li><a href="#">Dashboard</a></li>
+                                        <li class=""><a href="<?= base_url('Finance/Dashboard/index'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                        <li class=""><a href="<?= base_url('Finance/PPU/index'); ?>"><i class="glyphicon glyphicon-list-alt"></i> PPU</a></li>
+                                        <li><a><i class="fa fa-file-archive-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="<?= base_url('Finance/Report/ppu'); ?>">PPU</a></li>
+                                                <li><a href="<?= base_url('Finance/Report/monthly'); ?>">Bulanan</a></li>
+                                                <li><a href="<?= base_url('Finance/Report/yearly'); ?>">Tahunan</a></li>
                                             </ul>
                                         </li>
                                     </ul>

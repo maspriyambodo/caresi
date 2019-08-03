@@ -59,7 +59,12 @@ class PPU extends CI_Controller {
             'keterangan' => $this->input->post('keterangan'),
             'jumlah' => $this->input->post('jumlah'),
             'satuan' => $this->input->post('satuan'),
-            'harga' => $this->input->post('harga')
+            'harga' => $this->input->post('harga'),
+            'tgl_ppu' => date("Y-m-d"),
+            'tgl_pembayaran' => '',
+            'stat' => 1,
+            'syscreateuser' => '',
+            'syscreatedate'=>''
         ];
         $this->M_PPU->Simpan($data);
     }

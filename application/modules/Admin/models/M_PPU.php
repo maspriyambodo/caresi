@@ -14,8 +14,18 @@
 class M_PPU extends CI_Model {
 
     function Simpan($data) {
-        print_r($data);
-        die;
+        $this->db->trans_begin();
+        $i = 0;
+        for ($i = 0; $i < count($data['keterangan']); $i++) {
+            $this->db->set(['keterangan' => $data['keterangan'][$i], 'satuan' => $data['satuan'][$i], 'jumlah' => $data['jumlah'][$i], 'harga' => $data['harga'][$i]]);
+            $this->db->insert('ppu');
+        }
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+        } else {
+            $this->db->trans_commit();
+            echo '<script>alert("Success, tambah data ppu berhasil !");window.location.href="' . base_url('Admin/PPU/index') . '"</script>';
+        }
     }
 
     function Tambah() {

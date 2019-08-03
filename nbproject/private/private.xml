@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Priyambodo/Documents/Projects_PHP/caresi/application/modules/Logistik/models/M_ppu.php</file>
-            <file>file:/D:/Priyambodo/Documents/Projects_PHP/caresi/application/modules/Logistik/controllers/PPU.php</file>
+            <file>file:/D:/Priyambodo/Documents/Projects_PHP/caresi/application/modules/Finance/views/V_ppudetail.php</file>
+            <file>file:/D:/Priyambodo/Documents/Projects_PHP/caresi/application/modules/Finance/controllers/PPU.php</file>
+            <file>file:/D:/Priyambodo/Documents/Projects_PHP/caresi/application/views/Template.php</file>
+            <file>file:/D:/Priyambodo/Documents/Projects_PHP/caresi/application/modules/Finance/models/M_ppu.php</file>
         </group>
     </open-files>
 </project-private>

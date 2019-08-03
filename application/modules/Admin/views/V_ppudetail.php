@@ -9,10 +9,14 @@
     <div class="col-md-4">
         <div class="form-group">
             <label class="text-uppercase">Proyek</label>
-            <p><?= $ppu[0]->nama_proyek ?></p>
+            <p class="text-uppercase"><?= $ppu[0]->nama_proyek ?></p>
         </div>
     </div>
     <div class="col-md-4">
+        <div class="form-group">
+            <label class="text-uppercase">Owner</label>
+            <p class="text-uppercase"><?= $ppu[0]->pemilik_proyek ?></p>
+        </div>
         <div class="form-group text-right">
             <?php
             if ($ppu[0]->stat == 1) {
@@ -104,7 +108,7 @@
                 <?php
                 $ter = $value->total + $ppn;
                 echo ucwords(number_to_words($ter));
-                ?>
+                ?> Rupiah
             </td>
         </tr>
     </tfoot>
