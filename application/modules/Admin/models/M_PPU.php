@@ -66,4 +66,13 @@ class M_PPU extends CI_Model {
         
     }
 
+    function Bukti($no_ppu) {
+        $exec = $this->db->select()
+                ->from('dokumen_pendukung')
+                ->where('dokumen_pendukung.no_ppu', $no_ppu)
+                ->get()
+                ->result();
+        return $exec;
+    }
+
 }

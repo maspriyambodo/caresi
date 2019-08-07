@@ -64,7 +64,7 @@ class PPU extends CI_Controller {
             'tgl_pembayaran' => '',
             'stat' => 1,
             'syscreateuser' => '',
-            'syscreatedate'=>''
+            'syscreatedate' => ''
         ];
         $this->M_PPU->Simpan($data);
     }
@@ -85,7 +85,18 @@ class PPU extends CI_Controller {
     }
 
     function Bukti($no_ppu) {
-        echo '<img src="assets/images/bg1.jpg">';
+        $data = [
+            'title' => 'bukti transfer | PT CAB',
+            'formtitle' => '',
+            'id' => $this->result[0]->id,
+            'uname' => $this->result[0]->uname,
+            'usr_mail' => $this->result[0]->usr_mail,
+            'hak_akses' => $this->result[0]->hak_akses,
+            'pict' => $this->result[0]->pict,
+            'value' => $this->M_PPU->Bukti($no_ppu)
+        ];
+        $data['content'] = $this->load->view('V_ppubukti', $data, true);
+        $this->load->view('template', $data);
     }
 
 }

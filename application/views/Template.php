@@ -81,8 +81,6 @@
                                         <li><a><i class="fa fa-file-archive-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="<?= base_url('Finance/Report/ppu'); ?>">PPU</a></li>
-                                                <li><a href="<?= base_url('Finance/Report/monthly'); ?>">Bulanan</a></li>
-                                                <li><a href="<?= base_url('Finance/Report/yearly'); ?>">Tahunan</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -155,7 +153,6 @@
     <script src="<?= base_url('assets/js/date.js'); ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/js/moment.min.js'); ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/js/custom.min.js'); ?>" type="text/javascript"></script>
-    <script src="<?= base_url('assets/js/dropzone.min.js'); ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/js/jquery.inputmask.bundle.min.js'); ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/js/bootstrap-datepicker.min.js'); ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/js/signature_pad.min.js'); ?>" type="text/javascript"></script>
@@ -164,12 +161,12 @@
     <script src="<?= base_url('assets/js/datatables.min.js'); ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/js/pdfmake.min.js'); ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/js/vfs_fonts.js'); ?>" type="text/javascript"></script>
+    <script>
+        document.onreadystatechange = () => {
+            if (document.readyState === 'complete') {
+                $(".right_col").removeClass("hidden");
+            }
+        };
+    </script>
 </body>
-<script>
-    document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-            $(".right_col").removeClass("hidden");
-        }
-    };
-</script>
 </html>

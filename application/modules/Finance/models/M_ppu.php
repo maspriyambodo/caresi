@@ -37,4 +37,51 @@ class M_ppu extends CI_Model {
         return $exec;
     }
 
+    function ppu($ppu) {
+        $exec = $this->db->select('nama_proyek')
+                ->from('proyek')
+                ->where('proyek.id_ppu', $ppu)
+                ->get()
+                ->result();
+        return $exec;
+    }
+
+    function Uploadpoto($data) {
+        $this->db->trans_begin();
+        $this->db->insert('dokumen_pendukung', $data);
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            $this->db->trans_commit();
+            return true;
+        }
+    }
+
+    function Lunas($no_ppu) {
+        $cek = $this->db->select()
+                ->from('dokumen_pendukung')
+                ->where('no_ppu', $no_ppu)
+                ->get()
+                ->result();
+        if ($cek == false) {
+            $msg = ['status' => false, 'msg' => 'Error, bukti pembayaran atau transfer belum terupload !'];
+            return $msg;
+        } else {
+            $this->db->trans_begin();
+            $this->db->set(['stat' => 2, 'tgl_pembayaran' => date("Y-m-d"), 'sysupdateuser' => $this->session->userdata('id')]);
+            $this->db->where('ppu.no_ppu', $no_ppu);
+            $this->db->update('ppu');
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+                $msg = ['status' => false, 'msg' => 'Error, Status pembayaran gagal diubah !'];
+                return $msg;
+            } else {
+                $this->db->trans_commit();
+                $msg = ['status' => true, 'msg' => 'Success, Status pembayaran berhasil diubah !'];
+                return $msg;
+            }
+        }
+    }
+
 }
