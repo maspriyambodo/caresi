@@ -20,7 +20,7 @@ class Report extends CI_Controller {
         $this->result = $this->M_User->Auth();
     }
 
-    function ppu() {
+    function ppu($tahun) {
         $data = [
             'title' => 'Report PPU | PT RMB',
             'formtitle' => 'Report PPU',
@@ -30,16 +30,10 @@ class Report extends CI_Controller {
             'hak_akses' => $this->result[0]->hak_akses,
             'pict' => $this->result[0]->pict,
             'year' => $this->M_Report->year(),
-            'value' => $this->M_Report->index()
+            'value' => $this->M_Report->index($tahun)
         ];
         $data['content'] = $this->load->view('V_Reportppu', $data, true);
         $this->load->view('template', $data);
-    }
-
-    function tess() {
-        for ($x = 1; $x <= 4; $x++){
-            echo $x;
-        }
     }
 
 }

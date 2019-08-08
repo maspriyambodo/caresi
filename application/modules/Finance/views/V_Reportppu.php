@@ -1,7 +1,8 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <select class="form-control" onchange="Tahun()">
+            <select class="form-control" onchange="Tahun()" name="tahun">
+                <option value="">PILIH TAHUN LAPORAN</option>
                 <?php foreach ($year as $year) { ?>
                     <option value = "<?= $year->tahun ?>"><?= $year->tahun ?></option>
                 <?php } ?>
@@ -77,7 +78,7 @@
 </table>
 <script>
     window.onload = function () {
-        $('table').dataTable({
+        var datatable = $('table').dataTable({
             dom: 'Blftipr',
             responsive: true,
             "paging": false,
@@ -86,6 +87,7 @@
         });
     };
     function Tahun() {
-        alert('hahaha');
+        var year = $('select[name=tahun]').val();
+        window.location.href = "<?= base_url('Finance/Report/ppu/') ?>" + year;
     }
 </script>

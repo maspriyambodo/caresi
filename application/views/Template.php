@@ -80,7 +80,7 @@
                                         <li class=""><a href="<?= base_url('Finance/PPU/index'); ?>"><i class="glyphicon glyphicon-list-alt"></i> PPU</a></li>
                                         <li><a><i class="fa fa-file-archive-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="<?= base_url('Finance/Report/ppu'); ?>">PPU</a></li>
+                                                <li><a href="<?= base_url('Finance/Report/ppu/' . date("Y") . ''); ?>">PPU</a></li>
                                             </ul>
                                         </li>
                                     </ul>
