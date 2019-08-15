@@ -99,4 +99,18 @@ class PPU extends CI_Controller {
         $this->load->view('template', $data);
     }
 
+    function Cetak($no_ppu) {
+        $data = [
+            'title' => 'Print PPU | PT CAB',
+            'id' => $this->result[0]->id,
+            'uname' => $this->result[0]->uname,
+            'usr_mail' => $this->result[0]->usr_mail,
+            'hak_akses' => $this->result[0]->hak_akses,
+            'pict' => $this->result[0]->pict,
+            'ppu' => $this->M_PPU->Detail($ppu)
+        ];
+        $data['content'] = $this->load->view('V_ppudetail', $data, true);
+        $this->load->view('template', $data);
+    }
+
 }

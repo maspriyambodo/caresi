@@ -141,7 +141,7 @@
             </div>
         </div>
     <footer>
-        <div class="pull-right"> Copyrights © <?= date("Y") ?> All Rights Reserved by <a href="#" target="_new">PT CARRESIH ABADI</a> </div>
+        <div class="pull-right"> Copyrights © <?= date("Y") ?> All Rights Reserved by <a href="#" target="_new">PT ROBINSON MAJU BERSAMA</a> </div>
         <div class="clearfix"></div>
     </footer>
     <div class="back-to-top" data-placement="top" data-toggle="tooltip" id="back-top" title="" data-original-title="Back to Top"><i class="fa fa-chevron-up"></i></div>

@@ -18,13 +18,16 @@
             <p class="text-uppercase"><?= $ppu[0]->pemilik_proyek ?></p>
         </div>
         <div class="form-group text-right">
-            <?php
-            if ($ppu[0]->stat == 1) {
-                echo '';
-            } else {
-                echo '<a href="' . base_url('Admin/PPU/Bukti/' . $ppu[0]->no_ppu . '') . '" class="btn btn-default btn-success" target="_blank">lihat bukti transfer</a>';
-            }
-            ?>
+            <div class="btn-group" role="group" aria-label="...">
+                <a href="<?= base_url('Admin/PPU/Cetak/' . $ppu[0]->no_ppu . ''); ?>" class="btn btn-default"><i class="glyphicon glyphicon-print"></i> Print</a>
+                <?php
+                if ($ppu[0]->stat == 1) {
+                    echo '';
+                } else {
+                    echo '<a href="' . base_url('Admin/PPU/Bukti/' . $ppu[0]->no_ppu . '') . '" class="btn btn-default btn-success" target="_blank">lihat bukti transfer</a>';
+                }
+                ?>
+            </div>
         </div>
     </div>
 </div>
@@ -80,33 +83,10 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3"></td>
-            <td class="text-center text-uppercase">
-                ppn 10%
-            </td>
-            <td id="total" class="text-left">
-                <?php
-                $ppn = $value->total * 0.1;
-                echo 'Rp. ' . number_format($ppn);
-                ?>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3"></td>
-            <td class="text-center text-uppercase">
-                grand total
-            </td>
-            <td id="total" class="text-left">
-                <?php
-                echo 'Rp. ' . number_format($value->total + $ppn);
-                ?>
-            </td>
-        </tr>
-        <tr>
             <td class="text-center text-uppercase">terbilang</td>
             <td id="total" class="text-center" colspan="4">
                 <?php
-                $ter = $value->total + $ppn;
+                $ter = $value->total;
                 echo ucwords(number_to_words($ter));
                 ?> Rupiah
             </td>

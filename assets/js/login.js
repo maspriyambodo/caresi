@@ -38,7 +38,7 @@ function Login() {
         $.ajax({
             async: !1,
             type: 'POST',
-            url: "https://localhost/caresi/Auth/Proses/",
+            url: "http://localhost/rmb/Auth/Proses/",
             data: {
                 'uname': a,
                 'nik': b
@@ -46,13 +46,13 @@ function Login() {
             statusCode: {
                 200: function (data) {
                     if (data.hakakses == 1) {
-                        window.location.href = "https://localhost/caresi/Admin/Dashboard/index"
+                        window.location.href = "http://localhost/rmb/Admin/Dashboard/index"
                     } else if (data.hakakses == 2) {
-                        window.location.href = "https://localhost/caresi/Logistik/Dashboard/index"
+                        window.location.href = "http://localhost/rmb/Logistik/Dashboard/index"
                     } else if (data.hakakses == 3) {
-                        window.location.href = "https://localhost/caresi/Finance/Dashboard/index"
+                        window.location.href = "http://localhost/rmb/Finance/Dashboard/index"
                     } else if (data.hakakses == 4) {
-                        window.location.href = "https://localhost/caresi/Direktur/Dashboard/index"
+                        window.location.href = "http://localhost/rmb/Direktur/Dashboard/index"
                     }
                 },
                 201: function (data) {
