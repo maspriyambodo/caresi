@@ -54,7 +54,6 @@ class PPU extends CI_Controller {
     function Simpan() {
         $data = [
             'no_ppu' => $this->input->post('ppu')[0],
-            'nama_proyek' => $this->input->post('proyek')[0],
             'vendor' => $this->input->post('vendor')[0],
             'keterangan' => $this->input->post('keterangan'),
             'jumlah' => $this->input->post('jumlah'),
@@ -63,8 +62,12 @@ class PPU extends CI_Controller {
             'tgl_ppu' => date("Y-m-d"),
             'tgl_pembayaran' => '',
             'stat' => 1,
-            'syscreateuser' => '',
-            'syscreatedate' => ''
+            'syscreateuser' => $this->session->userdata('id'),
+            'syscreatedate' => date("Y-m-d"),
+            'nama_proyek' => $this->input->post('proyek')[0],
+            'tmt' => $this->input->post('tmtstart'),
+            'tmt_stop' => $this->input->post('tmtstop'),
+            'pemilik_proyek' => $this->input->post('pemilik_proyek')
         ];
         $this->M_PPU->Simpan($data);
     }

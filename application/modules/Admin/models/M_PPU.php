@@ -17,9 +17,27 @@ class M_PPU extends CI_Model {
         $this->db->trans_begin();
         $i = 0;
         for ($i = 0; $i < count($data['keterangan']); $i++) {
-            $this->db->set(['keterangan' => $data['keterangan'][$i], 'satuan' => $data['satuan'][$i], 'jumlah' => $data['jumlah'][$i], 'harga' => $data['harga'][$i]]);
-            $this->db->insert('ppu');
+            $this->db->set([
+                'no_ppu' => $data['no_ppu'],
+                'vendor' => $data['vendor'],
+                'keterangan' => $data['keterangan'][$i],
+                'jumlah' => $data['jumlah'][$i],
+                'satuan' => $data['satuan'][$i],
+                'harga' => $data['harga'][$i],
+                'tgl_ppu' => $data['tgl_ppu'],
+                'tgl_pembayaran' => '',
+                'stat' => $data['stat'],
+                'syscreateuser' => $data['syscreateuser'],
+                'syscreatedate' => $data['syscreatedate']
+            ])->insert('ppu');
         }
+        $this->db->set([
+            'id_ppu' => $data['no_ppu'],
+            'nama_proyek' => $data['nama_proyek'],
+            'tmt' => $data['tmt'],
+            'tmt_stop' => $data['tmt_stop'],
+            'pemilik_proyek' => $data['nama_proyek']
+        ])->insert('proyek');
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();
         } else {

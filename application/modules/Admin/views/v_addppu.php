@@ -6,17 +6,35 @@
                 <label class="text-uppercase">no ppu :</label>
                 <input type="text" class="form-control" name="ppu[]" readonly="" autocomplete="off" required="" value="<?= $ppu[0]->no_ppu ?>">
             </div>
+            <div class="form-group">
+                <label class="text-uppercase">pemilik proyek :</label>
+                <input type="text" name="pemilik_proyek" class="form-control" required="" autocomplete="off">
+            </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label class="text-uppercase">nama proyek :</label>
                 <input type="text" class="form-control" name="proyek[]" autocomplete="off" required="">
             </div>
+            <div class="form-group">
+                <label class="text-uppercase">tmt start :</label>
+                <div class="input-group" id="tmtstart">
+                    <input type="text" class="form-control" name="tmtstart" required="" autocomplete="off">
+                    <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+            </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label class="text-uppercase">vendor :</label>
                 <input type="text" class="form-control" name="vendor[]" autocomplete="off" required="">
+            </div>
+            <div class="form-group">
+                <label class="text-uppercase">tmt stop :</label>
+                <div class="input-group" id="tmtstop">
+                    <input type="text" class="form-control" name="tmtstop" required="" autocomplete="off">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
             </div>
         </div>
     </div>
@@ -73,6 +91,20 @@
     </div>
 </form>
 <script>
+    window.onload = function () {
+        $('#tmtstart input').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true,
+            toggleActive: true
+        });
+        $('#tmtstop input').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true,
+            toggleActive: true
+        });
+    };
     function additem() {
         $("<div style='clear:both;margin:10px 0px;'></div>").appendTo('#keterangan');
         $("<input type='text' class='form-control' name='keterangan[]' required='' autocomplete='off'>").appendTo('#keterangan');
